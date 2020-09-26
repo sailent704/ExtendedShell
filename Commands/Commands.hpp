@@ -6,6 +6,7 @@ namespace Commands
 {
 	//Args unused:
 	HRESULT pwd(vector<string> args);
+	HRESULT clear(vector<string> args);
 
 	//Args used:
 	HRESULT cd(vector<string> args);

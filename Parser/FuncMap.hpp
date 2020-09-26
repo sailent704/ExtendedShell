@@ -22,6 +22,12 @@ public:
 	{
 		return funcMap.contains(key);
 	}
+
+	tFunction operator[](string key)
+	{
+		if (funcMap.contains(key))
+			return funcMap.at(key);
+	}
 };
 
 inline CFuncMap gFuncMap;

@@ -1,6 +1,5 @@
 #include "Helpers.hpp"
 #include <sstream>
-
 //Don't include it in the header, because why should I
 #include <Windows.h>
 
@@ -36,6 +35,23 @@ string Helpers::vecsum(unsigned int offset, const vector<string>& vec, bool useD
 	return sComplete;
 }
 
+void Helpers::SetPrintCol(Color color)
+{
+	//Get the console output handle
+	static HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, static_cast<WORD>(color));
+}
+
+bool Helpers::StringCmp(const string& str, const string& str2)
+{
+	return _stricmp(str.c_str(), str2.c_str()) == 0;
+}
+
+bool Helpers::StringFind(const std::string& str, const char* toFind)
+{
+	return str.find(toFind) != string::npos;
+}
+
 bool Helpers::IsElevated()
 {
 	HANDLE hTk = nullptr;
@@ -54,4 +70,9 @@ bool Helpers::IsElevated()
 	}
 	
 	return bReturn;
+}
+
+bool Helpers::SetConsoleTitleS(std::string str)
+{
+	return SetConsoleTitleA(str.c_str());
 }

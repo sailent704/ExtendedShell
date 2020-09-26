@@ -7,4 +7,5 @@ void InitFuncMap(CFuncMap& map)
 	map.AddRef("pwd", Commands::pwd);
 	map.AddRef("cd", Commands::cd);
 	map.AddRef("ls", Commands::ls);
+	map.AddRef("clear", Commands::clear);
 }

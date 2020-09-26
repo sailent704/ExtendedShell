@@ -7,10 +7,10 @@ void ParseCommand(vector<string> vCommand)
 
 	if (gFuncMap.Exists(vCommand[0]))
 	{
-		gFuncMap.GetFunction(vCommand[0])(vCommand);
+		gFuncMap[vCommand[0]](vCommand);
 	}
 	else
 	{
-		printf("not found\n");
+		printf("%s: not found\n", vCommand[0].c_str());
 	}
 }
