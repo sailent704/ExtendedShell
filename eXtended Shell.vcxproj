@@ -143,7 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commands\cat.cpp" />
+    <ClCompile Include="Commands\cd.cpp" />
+    <ClCompile Include="Commands\clear.cpp" />
     <ClCompile Include="Commands\Commands.cpp" />
+    <ClCompile Include="Commands\ls.cpp" />
+    <ClCompile Include="Commands\mkdir.cpp" />
+    <ClCompile Include="Commands\pwd.cpp" />
+    <ClCompile Include="Commands\rm.cpp" />
+    <ClCompile Include="Commands\touch.cpp" />
     <ClCompile Include="Helpers\Helpers.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parser\FuncMap.cpp" />

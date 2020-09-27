@@ -1,6 +1,14 @@
 #pragma once
 #include "../Helpers/Helpers.hpp"
 #include <Windows.h>
+#include <filesystem>
+/*
+File: Commands.hpp
+Purpose: Contains declarations of all Commmand functions.
+Author: Pin (https://github.com/sailent704)
+*/
+
+namespace fs = std::filesystem;
 
 namespace Commands
 {

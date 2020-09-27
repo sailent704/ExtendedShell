@@ -1,6 +1,12 @@
 #include "FuncMap.hpp"
 #include "../Commands/Commands.hpp"
 
+/*
+File: FuncMap.cpp
+Purpose: Responsible for adding all the functions for the shell to support.
+Author: Pin (https://github.com/sailent704)
+*/
+
 //Commands will be added here, so no need for long "if else" statements
 void InitFuncMap(CFuncMap& map)
 {

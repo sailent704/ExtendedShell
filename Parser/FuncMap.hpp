@@ -1,6 +1,12 @@
 #pragma once
 #include "../Helpers/Helpers.hpp"
 
+/*
+File: FuncMap.hpp
+Purpose: Contains the definition of the CFuncMap class, responsible for storing pointers to all command-functions.
+Author: Pin (https://github.com/sailent704)
+*/
+
 using tFunction = long(__cdecl*)(vector<string>);
 
 class CFuncMap

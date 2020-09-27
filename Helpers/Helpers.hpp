@@ -3,11 +3,18 @@
 #include <functional>
 #include <vector>
 #include <map>
+#include <sstream>
 
 using std::vector;
 using std::function;
 using std::string;
 using std::wstring;
+
+/*
+File: Helpers.hpp
+Purpose: Has declarations of several helper functions.
+Author: Pin (https://github.com/sailent704)
+*/
 
 namespace Helpers
 {
@@ -40,11 +47,16 @@ namespace Helpers
 
 	bool StringFind(const string& str, const char* toFind);
 
+	bool StringFind(const wstring& str, const wchar_t* toFind);
+
 	int VectorFind(const string& str, const vector<string>& vec);
 
 	//Returns true only if the process is running with administrator rights
 	bool IsElevated();
 
-	//Why include Windows.h if I only need one function?
+	//Get the string representation of common error messages
+	string GetErrorMessage(const std::error_code& e);
+
+	//Why include Windows.h when I only need one function?
 	bool SetConsoleTitleS(string str);
 }

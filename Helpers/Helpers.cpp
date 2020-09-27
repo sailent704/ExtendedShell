@@ -1,9 +1,12 @@
 #include "Helpers.hpp"
-#include <sstream>
-//Don't include it in the header, because why should I
 #include <Windows.h>
 
-//Separate a string into a vector (delimited by a character)
+/*
+File: Helpers.cpp
+Purpose: Has definitions of several helper functions.
+Author: Pin (https://github.com/sailent704)
+*/
+
 vector<string> Helpers::delimstr(char delimiter, const string& str)
 {
 	vector<string> vLines;
@@ -52,6 +55,11 @@ bool Helpers::StringFind(const std::string& str, const char* toFind)
 	return str.find(toFind) != string::npos;
 }
 
+bool Helpers::StringFind(const wstring& str, const wchar_t* toFind)
+{
+	return _wcsicmp(str.c_str(), toFind) == 0;
+}
+
 int Helpers::VectorFind(const string& str, const vector<string>& vec)
 {
 	int nLast = 0;
@@ -83,6 +91,37 @@ bool Helpers::IsElevated()
 	}
 	
 	return bReturn;
+}
+
+string Helpers::GetErrorMessage(const std::error_code& e)
+{
+	switch (e.value())
+	{
+	case ERROR_FILE_NOT_FOUND:
+	case ERROR_PATH_NOT_FOUND:
+		return "No such file or directory";
+	case ERROR_ACCESS_DENIED:
+	case ERROR_NETWORK_ACCESS_DENIED:
+		return "Permission denied";
+	case ERROR_NOT_ENOUGH_MEMORY:
+		return "Out of memory: Insufficient or invalid memory";
+	case ERROR_NOT_READY:
+		return "The device is not ready";
+	case ERROR_DIR_NOT_EMPTY:
+		return "Directory not empty";
+	case ERROR_ALREADY_EXISTS:
+		return "File exists";
+	case ERROR_INVALID_EXE_SIGNATURE:
+	case ERROR_BAD_EXE_FORMAT:
+		return "Cannot execute binary file";
+	case ERROR_DIRECTORY:
+		return "Directory name invalid";
+	case ERROR_DEVICE_UNREACHABLE:
+	case ERROR_DEVICE_NO_RESOURCES:
+		return "Device is busy";
+	}
+
+	return "Error " + std::to_string(e.value());
 }
 
 bool Helpers::SetConsoleTitleS(std::string str)
