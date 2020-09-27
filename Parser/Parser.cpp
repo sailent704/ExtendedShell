@@ -9,6 +9,10 @@ void ParseCommand(vector<string> vCommand)
 	{
 		gFuncMap[vCommand[0]](vCommand);
 	}
+	else if (vCommand[0].starts_with("./"))
+	{
+		gFuncMap["./\t"](vCommand);
+	}
 	else
 	{
 		printf("%s: not found\n", vCommand[0].c_str());

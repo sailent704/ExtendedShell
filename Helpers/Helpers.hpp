@@ -31,7 +31,7 @@ namespace Helpers
 	vector<string> delimstr(char delimiter, const string& str);
 
 	//Concatenate strings in a vector into a single string (and put 'delim' in between)
-	string vecsum(unsigned int offset, const vector<string>& vec, bool useDelim = false, char delim = '\n');
+	string vecsum(unsigned int offset, const vector<string>& vec, bool useDelim = false, char delim = ' ');
 
 	void SetPrintCol(Color color);
 
@@ -39,6 +39,8 @@ namespace Helpers
 	bool StringCmp(const string& str, const string& str2);
 
 	bool StringFind(const string& str, const char* toFind);
+
+	int VectorFind(const string& str, const vector<string>& vec);
 
 	//Returns true only if the process is running with administrator rights
 	bool IsElevated();

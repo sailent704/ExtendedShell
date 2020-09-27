@@ -52,6 +52,19 @@ bool Helpers::StringFind(const std::string& str, const char* toFind)
 	return str.find(toFind) != string::npos;
 }
 
+int Helpers::VectorFind(const string& str, const vector<string>& vec)
+{
+	int nLast = 0;
+
+	for (int n = 0; n < vec.size(); n++)
+	{
+		if (StringFind(vec[n], str.c_str()))
+			nLast = n;
+	}
+
+	return nLast;
+}
+
 bool Helpers::IsElevated()
 {
 	HANDLE hTk = nullptr;

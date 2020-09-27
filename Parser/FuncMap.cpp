@@ -8,4 +8,9 @@ void InitFuncMap(CFuncMap& map)
 	map.AddRef("cd", Commands::cd);
 	map.AddRef("ls", Commands::ls);
 	map.AddRef("clear", Commands::clear);
+	map.AddRef("cat", Commands::cat);
+	map.AddRef("mkdir", Commands::mkdir);
+	map.AddRef("touch", Commands::touch);
+	map.AddRef("rm", Commands::rm);
+	map.AddRef("./\t", Commands::RunFile); // '\t' is added for the command to not be recognized normally.
 }
