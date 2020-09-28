@@ -7,9 +7,12 @@ Purpose: Prints the working directory for the process.
 Author: Pin (https://github.com/sailent704)
 */
 
-HRESULT Commands::pwd(vector<string> args)
+HRESULT Commands::pwd(vector<wstring> args)
 {
-	std::cout << fs::current_path().string() << std::endl;
+	std::error_code ec;
+	auto path = fs::current_path(ec);
+
+	std::wcout << path.native() << std::endl;
 
 	return S_OK;
 }

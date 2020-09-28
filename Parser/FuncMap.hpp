@@ -7,29 +7,29 @@ Purpose: Contains the definition of the CFuncMap class, responsible for storing 
 Author: Pin (https://github.com/sailent704)
 */
 
-using tFunction = long(__cdecl*)(vector<string>);
+using tFunction = long(__cdecl*)(vector<wstring>);
 
 class CFuncMap
 {
 	//Default visibility is private
-	std::map<string, tFunction> funcMap;
+	std::map<wstring, tFunction> funcMap;
 public:
-	tFunction GetFunction(string key)
+	tFunction GetFunction(wstring key)
 	{
 		return funcMap[key];
 	}
 
-	void AddRef(string key, tFunction func)
+	void AddRef(wstring key, tFunction func)
 	{
 		funcMap[key] = func;
 	}
 
-	bool Exists(string key)
+	bool Exists(wstring key)
 	{
 		return funcMap.contains(key);
 	}
 
-	tFunction operator[](string key)
+	tFunction operator[](wstring key)
 	{
 		if (funcMap.contains(key))
 			return funcMap.at(key);

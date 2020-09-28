@@ -6,4 +6,4 @@ Purpose: Holds definitions of Parser functions (only one line at the time of wri
 Author: Pin (https://github.com/sailent704)
 */
 
-void ParseCommand(vector<string> vCommand);
+void ParseCommand(vector<wstring> vCommand);

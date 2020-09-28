@@ -15,43 +15,40 @@ Author: Pin (https://github.com/sailent704)
 void PrintPrefix()
 {
 	wstring sDir = L"\\\\Unknown\\Path";
-	try
-	{
-		std::error_code ec;
 
-		auto path = std::filesystem::current_path(ec);
-		if (ec.value() != 0)
-		{
-			std::cout << "[ExtendedShell] Failed to query the current directory: " << Helpers::GetErrorMessage(ec) << std::endl;
-		}
-		else
-		{
-			sDir = path.wstring();
-		}
-	}
-	catch (std::system_error& e)
+	std::error_code ec;
+
+	auto path = std::filesystem::current_path(ec);
+	if (ec.value() != 0)
 	{
-		std::cout << "[catchExtended] Failed to query the current directory. Error: " << e.what() << std::endl;
+		std::wcout << L"[ExtendedShell] Failed to query the current directory: " << Helpers::GetErrorMessage(ec) << std::endl;
+	}
+	else
+	{
+		sDir = path.native();
+
+		//Change 'D:\Test' to 'D:/Test' - looks better IMO
+		//std::replace(sDir.begin(), sDir.end(), '\\', '/');
 	}
 	
-	string userName = getenv("username");
-	string pcName = getenv("computername");
+	wstring userName = Helpers::ToWString(getenv("username"));
+	wstring pcName = Helpers::ToWString(getenv("computername"));
 
 	Helpers::SetPrintCol(Helpers::Color::GREEN);
-	std::cout << userName << "@" << pcName;
-	Helpers::SetPrintCol(Helpers::Color::DEFAULT);
-	std::cout << ':';
-	Helpers::SetPrintCol(Helpers::Color::DARKBLUE);
-	std::cout << std::string(sDir.begin(), sDir.end()); //a hack-around for patching a crash
+	std::wcout << userName << "@" << pcName;
+	Helpers::SetPrintCol(Helpers::Color::WHITE);
+	std::wcout << ':';
+	Helpers::SetPrintCol(Helpers::Color::BLUE);
+	std::wcout << sDir;
 	Helpers::SetPrintCol(Helpers::Color::DEFAULT);
 
 	if (Helpers::IsElevated())
 	{
-		std::cout << "# ";
+		std::wcout << "# ";
 	}
 	else
 	{
-		std::cout << "$ ";
+		std::wcout << "$ ";
 	}
 }
 
@@ -59,15 +56,17 @@ int main(int arg_count, char** arg_vector)
 {
 	InitFuncMap(gFuncMap);
 	//Do stuff with args here
-	Helpers::SetConsoleTitleS("eXtended Shell");
+	Helpers::SetConsoleTitleS("ExtendedShell Nightly");
+
+	setlocale(LC_ALL, "en_US.UTF-8");
 
 	while (1)
 	{
-		string sInput;
+		wstring sInput;
 	
 		PrintPrefix();
 
-		std::getline(std::cin, sInput);
+		std::getline(std::wcin, sInput);
 
 		ParseCommand(Helpers::delimstr(' ', sInput));
 	}

@@ -8,30 +8,38 @@ Purpose: Manages the 'cat' command, responsible for displaying a file's contents
 Author: Pin (https://github.com/sailent704)
 */
 
-HRESULT Commands::cat(vector<string> args)
+HRESULT Commands::cat(vector<wstring> args)
 {
+	//I can't replicate the echo-back behavior
 	if (args.size() < 2)
-		return E_INVALIDARG;
-
-	string sFileName = Helpers::vecsum(1, args, true, ' ');
-
-	if (!fs::exists(sFileName))
 	{
-		printf("cat: %s: No such file or directory\n", sFileName.c_str());
+		std::wcout << "cat: Missing operand" << std::endl;
 		return E_INVALIDARG;
 	}
 
-	std::ifstream file(sFileName);
+	//The full file name
+	wstring strSum = Helpers::vecsum(1, args, true);
+
+	std::error_code ec;
+	if (!fs::exists(strSum, ec))
+	{
+		std::wcout << "cat: No such file or directory" << std::endl;
+		return ERROR_FILE_NOT_FOUND;
+	}
+
+	std::wifstream file(strSum);
 
 	if (!file.good())
 	{
-		std::cout << "cat: Failed to open file" << std::endl;
+		std::wcout << "cat: Cannot open file." << std::endl;
 		return E_FAIL;
 	}
 
-	std::stringstream sStream; sStream << file.rdbuf();
+	std::wstringstream wStream; wStream << file.rdbuf();
 
-	std::cout << sStream.str() << std::endl;
+	std::wcout << wStream.str() << std::endl;
+
+	file.close();
 
 	return S_OK;
 }

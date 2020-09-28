@@ -7,12 +7,12 @@ Purpose: Has definitions of several helper functions.
 Author: Pin (https://github.com/sailent704)
 */
 
-vector<string> Helpers::delimstr(char delimiter, const string& str)
+vector<wstring> Helpers::delimstr(const wchar_t delimiter, const wstring& str)
 {
-	vector<string> vLines;
-	auto stream = std::stringstream(str);
+	vector<wstring> vLines;
+	auto stream = std::wstringstream(str);
 
-	for (string sLine; std::getline(stream, sLine, delimiter);)
+	for (wstring sLine; std::getline(stream, sLine, delimiter);)
 	{
 		//Handle empty strings (space)
 		if (!sLine.empty())
@@ -22,9 +22,9 @@ vector<string> Helpers::delimstr(char delimiter, const string& str)
 	return vLines;
 }
 
-string Helpers::vecsum(unsigned int offset, const vector<string>& vec, bool useDelim, char delim)
+wstring Helpers::vecsum(unsigned int offset, const vector<wstring>& vec, bool useDelim, char delim)
 {
-	string sComplete;
+	wstring sComplete;
 	size_t vecSize = vec.size();
 
 	for (size_t off = offset; off < vecSize; off++)
@@ -50,17 +50,12 @@ bool Helpers::StringCmp(const string& str, const string& str2)
 	return _stricmp(str.c_str(), str2.c_str()) == 0;
 }
 
-bool Helpers::StringFind(const std::string& str, const char* toFind)
-{
-	return str.find(toFind) != string::npos;
-}
-
 bool Helpers::StringFind(const wstring& str, const wchar_t* toFind)
 {
 	return _wcsicmp(str.c_str(), toFind) == 0;
 }
 
-int Helpers::VectorFind(const string& str, const vector<string>& vec)
+int Helpers::VectorFind(const wstring& str, const vector<wstring>& vec)
 {
 	int nLast = 0;
 
@@ -93,38 +88,45 @@ bool Helpers::IsElevated()
 	return bReturn;
 }
 
-string Helpers::GetErrorMessage(const std::error_code& e)
+wstring Helpers::GetErrorMessage(const std::error_code& e)
 {
 	switch (e.value())
 	{
 	case ERROR_FILE_NOT_FOUND:
 	case ERROR_PATH_NOT_FOUND:
-		return "No such file or directory";
+		return L"No such file or directory";
 	case ERROR_ACCESS_DENIED:
 	case ERROR_NETWORK_ACCESS_DENIED:
-		return "Permission denied";
+		return L"Permission denied";
 	case ERROR_NOT_ENOUGH_MEMORY:
-		return "Out of memory: Insufficient or invalid memory";
+		return L"Out of memory: Insufficient or invalid memory";
 	case ERROR_NOT_READY:
-		return "The device is not ready";
+		return L"The device is not ready";
 	case ERROR_DIR_NOT_EMPTY:
-		return "Directory not empty";
+		return L"Directory not empty";
 	case ERROR_ALREADY_EXISTS:
-		return "File exists";
+		return L"File exists";
 	case ERROR_INVALID_EXE_SIGNATURE:
 	case ERROR_BAD_EXE_FORMAT:
-		return "Cannot execute binary file";
+		return L"Cannot execute binary file";
+	case ERROR_INVALID_NAME:
+		return L"Filename invalid";
 	case ERROR_DIRECTORY:
-		return "Directory name invalid";
+		return L"Directory name invalid";
 	case ERROR_DEVICE_UNREACHABLE:
 	case ERROR_DEVICE_NO_RESOURCES:
-		return "Device is busy";
+		return L"Device is busy";
 	}
 
-	return "Error " + std::to_string(e.value());
+	return L"Error " + std::to_wstring(e.value());
 }
 
 bool Helpers::SetConsoleTitleS(std::string str)
 {
 	return SetConsoleTitleA(str.c_str());
+}
+
+wstring Helpers::ToWString(string str)
+{
+	return wstring(str.begin(), str.end());
 }

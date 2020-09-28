@@ -6,7 +6,7 @@ Purpose: Responsible for determining and subsequently calling whatever function 
 Author: Pin (https://github.com/sailent704)
 */
 
-void ParseCommand(vector<string> vCommand)
+void ParseCommand(vector<wstring> vCommand)
 {
 	if (vCommand.empty())
 		return;
@@ -19,16 +19,16 @@ void ParseCommand(vector<string> vCommand)
 		}
 		catch (...)
 		{
-			std::cout << "[ExtendedShell] Unhandled exception caught, stopping operation to prevent a crash." << std::endl;
+			std::wcout << L"ExtendedShell: Unhandled exception caught, stopping operation to prevent a crash." << std::endl;
 		}
 		
 	}
-	else if (vCommand[0].starts_with("./"))
+	else if (vCommand[0].starts_with(L"./"))
 	{
-		gFuncMap["./\t"](vCommand);
+		gFuncMap[L"./\t"](vCommand);
 	}
 	else
 	{
-		printf("%s: not found\n", vCommand[0].c_str());
+		std::wcout << vCommand[0] << ": not found\n";
 	}
 }

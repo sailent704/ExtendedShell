@@ -13,16 +13,16 @@ namespace fs = std::filesystem;
 namespace Commands
 {
 	//Args unused:
-	HRESULT pwd(vector<string> args);
-	HRESULT clear(vector<string> args);
+	HRESULT pwd(vector<wstring> args);
+	HRESULT clear(vector<wstring> args);
 
 	//Args used:
-	HRESULT cd(vector<string> args);
-	HRESULT cat(vector<string> args);
-	HRESULT ls(vector<string> args);
-	HRESULT mkdir(vector<string> args);
-	HRESULT touch(vector<string> args);
-	HRESULT rm(vector<string> args);
+	HRESULT cd(vector<wstring> args);
+	HRESULT cat(vector<wstring> args);
+	HRESULT ls(vector<wstring> args);
+	HRESULT mkdir(vector<wstring> args);
+	HRESULT touch(vector<wstring> args);
+	HRESULT rm(vector<wstring> args);
 
-	HRESULT RunFile(vector<string> args);
+	HRESULT RunFile(vector<wstring> args);
 }
