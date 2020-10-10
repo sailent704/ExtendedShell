@@ -1,7 +1,6 @@
 #include "Commands.hpp"
 #include <fstream>
 #include <iostream>
-
 /*
 File: cat.cpp
 Purpose: Manages the 'cat' command, responsible for displaying a file's contents.
@@ -27,7 +26,7 @@ HRESULT Commands::cat(vector<wstring> args)
 		return ERROR_FILE_NOT_FOUND;
 	}
 
-	std::wifstream file(strSum);
+	std::wifstream file(strSum.c_str());
 
 	if (!file.good())
 	{
