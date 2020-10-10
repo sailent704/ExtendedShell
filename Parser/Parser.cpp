@@ -29,6 +29,6 @@ void ParseCommand(vector<wstring> vCommand)
 	}
 	else
 	{
-		std::wcout << vCommand[0] << ": not found\n";
+		std::wcout << vCommand[0] << L": not found\n";
 	}
 }
