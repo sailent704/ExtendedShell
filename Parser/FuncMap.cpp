@@ -20,4 +20,5 @@ void InitFuncMap(CFuncMap* map)
 	map->AddRef(L"touch", Commands::touch);
 	//map->AddRef(L"rm", Commands::rm);
 	//map->AddRef(L"./\t", Commands::RunFile); // '\t' is added for the command to not be recognized normally.
+	map->AddRef(L"echo", Commands::echo);
 }
