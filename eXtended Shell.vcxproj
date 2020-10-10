@@ -147,6 +147,7 @@
     <ClCompile Include="Commands\cd.cpp" />
     <ClCompile Include="Commands\clear.cpp" />
     <ClCompile Include="Commands\Commands.cpp" />
+    <ClCompile Include="Commands\exit.cpp" />
     <ClCompile Include="Commands\ls.cpp" />
     <ClCompile Include="Commands\mkdir.cpp" />
     <ClCompile Include="Commands\pwd.cpp" />

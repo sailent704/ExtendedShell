@@ -50,9 +50,14 @@ bool Helpers::StringCmp(const string& str, const string& str2)
 	return _stricmp(str.c_str(), str2.c_str()) == 0;
 }
 
-bool Helpers::StringFind(const wstring& str, const wchar_t* toFind)
+bool Helpers::StringCmp(const wstring& str, const wchar_t* toFind)
 {
 	return _wcsicmp(str.c_str(), toFind) == 0;
+}
+
+bool Helpers::StringFind(const wstring& str, const wstring toFind)
+{
+	return str.find(toFind) != string::npos;
 }
 
 int Helpers::VectorFind(const wstring& str, const vector<wstring>& vec)
@@ -61,7 +66,7 @@ int Helpers::VectorFind(const wstring& str, const vector<wstring>& vec)
 
 	for (int n = 0; n < vec.size(); n++)
 	{
-		if (StringFind(vec[n], str.c_str()))
+		if (StringCmp(vec[n], str.c_str()))
 			nLast = n;
 	}
 
@@ -88,6 +93,15 @@ bool Helpers::IsElevated()
 	return bReturn;
 }
 
+//G++ seems to have issues with these - credit: MousieDev
+#ifndef ERROR_DEVICE_UNREACHABLE
+#define ERROR_DEVICE_UNREACHABLE 321L
+#endif // !ERROR_DEVICE_UNREACHABLE
+
+#ifndef ERROR_DEVICE_NO_RESOURCES
+#define ERROR_DEVICE_NO_RESOURCES 322L
+#endif
+
 wstring Helpers::GetErrorMessage(const std::error_code& e)
 {
 	switch (e.value())
@@ -113,6 +127,8 @@ wstring Helpers::GetErrorMessage(const std::error_code& e)
 		return L"Filename invalid";
 	case ERROR_DIRECTORY:
 		return L"Directory name invalid";
+	case ERROR_INVALID_PARAMETER:
+		return L"The parameter is invalid";
 	case ERROR_DEVICE_UNREACHABLE:
 	case ERROR_DEVICE_NO_RESOURCES:
 		return L"Device is busy";

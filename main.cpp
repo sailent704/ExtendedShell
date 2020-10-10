@@ -54,9 +54,10 @@ void PrintPrefix()
 
 int main(int arg_count, char** arg_vector)
 {
-	InitFuncMap(gFuncMap);
-	//Do stuff with args here
 	Helpers::SetConsoleTitleS("ExtendedShell Nightly");
+
+	InitFuncMap(&gFuncMap);
+	//Do stuff with args here
 
 	setlocale(LC_ALL, "en_US.UTF-8");
 

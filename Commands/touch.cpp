@@ -10,5 +10,14 @@ Author: Pin (https://github.com/sailent704)
 
 HRESULT Commands::touch(vector<wstring> args)
 {
-	return S_OK;
+	std::wofstream wStream(Helpers::vecsum(1, args, true));
+	if (wStream.good())
+	{
+		wStream << "";
+		wStream.close();
+
+		return S_OK;
+	}
+
+	return E_FAIL;
 }

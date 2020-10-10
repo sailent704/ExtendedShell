@@ -33,9 +33,10 @@ public:
 	{
 		if (funcMap.contains(key))
 			return funcMap.at(key);
+		return nullptr;
 	}
 };
 
 inline CFuncMap gFuncMap;
 
-void InitFuncMap(CFuncMap& map);
+void InitFuncMap(CFuncMap* map);

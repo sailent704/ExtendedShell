@@ -45,8 +45,11 @@ namespace Helpers
 	//Case insensitive string compare - returns true if they are the same.
 	bool StringCmp(const string& str, const string& str2);
 
-	bool StringFind(const wstring& str, const wchar_t* toFind);
+	bool StringCmp(const wstring& str, const wchar_t* toFind);
 
+	bool StringFind(const wstring& str, const wstring toFind);
+
+	//Find the last occurence of something in a vector
 	int VectorFind(const wstring& str, const vector<wstring>& vec);
 
 	//Returns true only if the process is running with administrator rights
