@@ -2,6 +2,7 @@
 #include "../Helpers/Helpers.hpp"
 #include <Windows.h>
 #include <filesystem>
+
 /*
 File: Commands.hpp
 Purpose: Contains declarations of all Commmand functions.
@@ -27,4 +28,7 @@ namespace Commands
 
 	HRESULT _execute(vector<wstring> args);
 	std::error_code _iteratefolder(wstring wsPath, bool bRecursive, function<void(fs::directory_entry&, bool)> onIterator);
+
+	//Both (args used and unused):
+	HRESULT echo(vector<wstring> args);
 }
