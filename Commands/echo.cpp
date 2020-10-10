@@ -12,15 +12,17 @@
 
 HRESULT Commands::echo(vector<wstring> args)
 {
-	if(args.at(1).compare(L"") == 0)
+	if(args.size() <= 1 || args.at(1).compare(L"") == 0)
 	{
-		std::cout << "Usage: (f [filename]) [text]" << std::endl;
-		std::cout << "(f [filename]): Optional; write output to file. Example: echo f text.txt hello -> writes hello to file text.txt" << std::endl;
-		std::cout << "[text]: Required. Text to write" << std::endl;
-		return E_FAIL;
+		std::wcout << L"Usage: (f [filename]) [text]" << std::endl;
+		std::wcout << L"[text]: Text to write" << std::endl;
+		std::wcout << L"(f [filename]): Write output to file. Example: echo f text.txt hello -> writes hello to file text.txt" << std::endl;
+		std::wcout << L"(argument) is optional; [argument] is required." << std::endl;
+		std::wcout << L"If no (f [filename]) argument provided, output will be written into console." << std::endl << std::endl;
+		return E_INVALIDARG;
 	}
 
-	if(args.at(1).compare(L"f") == 0)
+	if(args.at(1).compare(L"f") == 0 && args.size() >= 3)
 	{
 		std::wofstream wStream(args.at(2).c_str(), std::ios::out | std::ios::app | std::ios::binary);
 		if (wStream.good())
