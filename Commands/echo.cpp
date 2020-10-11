@@ -7,36 +7,59 @@
 	Purpose: Hold echo function
 	Function: Writes wstring to stdout or file
 	Author: MousieDev (https://github.com/MousieDev)
-	10.10.2020 15:30
+	Created: 10.10.2020 15:30
+	Revision 1: 1: 11.10.2020 7:30
 */
+
+HRESULT PrintUsage()
+{
+	std::wcout << L"cd: Missing operand" << std::endl;
+	std::wcout << L"Usage: <text> [> FILENAME]" << std::endl;
+	std::wcout << L"[text]: Text to write." << std::endl;
+	std::wcout << L"[> FILENAME]: Write output to file." << std::endl << std::endl;
+	return E_INVALIDARG;
+}
 
 HRESULT Commands::echo(vector<wstring> args)
 {
-	if(args.size() <= 1 || args.at(1).compare(L"") == 0)
-	{
-		std::wcout << L"Usage: (f [filename]) [text]" << std::endl;
-		std::wcout << L"[text]: Text to write" << std::endl;
-		std::wcout << L"(f [filename]): Write output to file. Example: echo f text.txt hello -> writes hello to file text.txt" << std::endl;
-		std::wcout << L"(argument) is optional; [argument] is required." << std::endl;
-		std::wcout << L"If no (f [filename]) argument provided, output will be written into console." << std::endl << std::endl;
-		return E_INVALIDARG;
-	}
+	if(args.empty() || args.size() <= 1 || args.at(1).compare(L"") == 0) return PrintUsage();
 
-	if(args.at(1).compare(L"f") == 0 && args.size() >= 3)
+	wstring text = Helpers::vecsum(1, args, true);
+	if(args.size() >= 4 && text.find(L">") != std::string::npos)
 	{
-		std::wofstream wStream(args.at(2).c_str(), std::ios::out | std::ios::app | std::ios::binary);
+		std::vector<wstring> words;
+
+		int i = 0;
+		while(i < args.size() && !args.at(i).compare(L">") == 0)
+		{
+			words.push_back(args.at(i));
+			i++;
+		}
+
+		int toFileIndex = text.find(L">");
+		wstring filename;
+
+		if(text.length() < toFileIndex +2) goto justPrint;
+		else filename = text.substr(toFileIndex +2, text.length());
+
+		wstring actualText = text.substr(0, toFileIndex -1);
+		std::wcout << actualText << std::endl << std::endl;
+
+		std::wofstream wStream(filename.c_str(), std::ios::out | std::ios::app | std::ios::binary);
 		if (wStream.good())
 		{
-			wStream << Helpers::vecsum(3, args, true) << std::endl;
+			wStream << actualText << std::endl;
 			wStream.close();
 
 			return S_OK;
+		} else {
+			std::wcout << L"echo: Failed to open file for writing." << std::endl;
+			return E_FAIL;
 		}
-
-		return E_FAIL;
+	} else {
+		justPrint:
+		std::wcout << text << std::endl << std::endl;
 	}
 
-	wstring text = Helpers::vecsum(1, args, true);
-	std::wcout << text << std::endl;
 	return S_OK;
 }
