@@ -36,10 +36,13 @@ void PrintPrefix()
 
 	Helpers::SetPrintCol(Helpers::Color::GREEN);
 	std::wcout << userName << "@" << pcName;
+
 	Helpers::SetPrintCol(Helpers::Color::WHITE);
 	std::wcout << ':';
+
 	Helpers::SetPrintCol(Helpers::Color::BLUE);
 	std::wcout << sDir;
+
 	Helpers::SetPrintCol(Helpers::Color::DEFAULT);
 
 	if (Helpers::IsElevated())

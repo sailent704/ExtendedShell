@@ -119,14 +119,14 @@ wstring Helpers::GetErrorMessage(const std::error_code& e)
 	case ERROR_DIR_NOT_EMPTY:
 		return L"Directory not empty";
 	case ERROR_ALREADY_EXISTS:
-		return L"File exists";
+		return L"File already exists";
 	case ERROR_INVALID_EXE_SIGNATURE:
 	case ERROR_BAD_EXE_FORMAT:
 		return L"Cannot execute binary file";
 	case ERROR_INVALID_NAME:
-		return L"Filename invalid";
+		return L"Filename is invalid";
 	case ERROR_DIRECTORY:
-		return L"Directory name invalid";
+		return L"Directory name is invalid";
 	case ERROR_INVALID_PARAMETER:
 		return L"The parameter is invalid";
 	case ERROR_DEVICE_UNREACHABLE:
