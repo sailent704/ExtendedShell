@@ -3,14 +3,14 @@ CC=g++
 TARGET_EXEC ?= Executable/eXtended.exe
 BUILD_DIR ?= out
 
-SRCS := main.cpp $(wildcard Commands/*.cpp) $(wildcard Helpers/*.cpp) $(wildcard Parser/*.cpp)
+SRCS := $(wildcard *.cpp) $(wildcard Commands/*.cpp) $(wildcard Helpers/*.cpp) $(wildcard Parser/*.cpp)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
 CPPFLAGS ?= -std=gnu++20 -Ofast
 LDFLAGS ?= -m32 -static -static-libgcc
 
 # Linking
-$(BUILD_DIR)/$(TARGET_EXEC): time $(BUILD_DIR) $(OBJS)
+$(BUILD_DIR)/$(TARGET_EXEC): $(BUILD_DIR) time $(OBJS)
 	@echo Linking
 	@$(CC) $(LDFLAGS) $(OBJS) -o $@
 	@getTime.bat $(BUILD_DIR) end

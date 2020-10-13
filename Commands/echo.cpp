@@ -13,7 +13,7 @@
 
 HRESULT PrintUsage()
 {
-	std::wcout << L"cd: Missing operand" << std::endl;
+	std::wcout << L"echo: Missing operand" << std::endl;
 	std::wcout << L"Usage: <text> [> FILENAME]" << std::endl;
 	std::wcout << L"[text]: Text to write." << std::endl;
 	std::wcout << L"[> FILENAME]: Write output to file." << std::endl << std::endl;

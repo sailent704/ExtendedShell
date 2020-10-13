@@ -1,9 +1,10 @@
-#include "Helpers/Helpers.hpp"
 #include <iostream>
-#include "Parser/FuncMap.hpp"
-#include "Parser/Parser.hpp"
 #include <filesystem>
 #include <Windows.h>
+
+#include "Helpers/Helpers.hpp"
+#include "Parser/FuncMap.hpp"
+#include "Parser/Parser.hpp"
 #pragma warning(disable : 4996)
 
 /*
@@ -44,7 +45,6 @@ void PrintPrefix()
 	std::wcout << sDir;
 
 	Helpers::SetPrintCol(Helpers::Color::DEFAULT);
-
 	if (Helpers::IsElevated())
 	{
 		std::wcout << "# ";
@@ -58,20 +58,17 @@ void PrintPrefix()
 int main(int arg_count, char** arg_vector)
 {
 	Helpers::SetConsoleTitleS("ExtendedShell Nightly");
-
 	InitFuncMap(&gFuncMap);
 	//Do stuff with args here
 
 	setlocale(LC_ALL, "en_US.UTF-8");
 
-	while (1)
+	while (true)
 	{
-		wstring sInput;
-	
 		PrintPrefix();
-
+	
+		wstring sInput;
 		std::getline(std::wcin, sInput);
-
 		ParseCommand(Helpers::delimstr(' ', sInput));
 	}
 
