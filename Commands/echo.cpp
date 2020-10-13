@@ -8,7 +8,7 @@
 	Function: Writes wstring to stdout or file
 	Author: MousieDev (https://github.com/MousieDev)
 	Created: 10.10.2020 15:30
-	Revision 1: 1: 11.10.2020 7:30
+	Revision 1: 11.10.2020 7:30
 */
 
 HRESULT PrintUsage()

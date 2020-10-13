@@ -25,10 +25,8 @@ namespace Commands
 	HRESULT mkdir(vector<wstring> args);
 	HRESULT touch(vector<wstring> args);
 	HRESULT rm(vector<wstring> args);
+	HRESULT echo(vector<wstring> args);
 
 	HRESULT _execute(vector<wstring> args);
 	std::error_code _iteratefolder(wstring wsPath, bool bRecursive, function<void(fs::directory_entry&, bool)> onIterator);
-
-	//Both (args used and unused):
-	HRESULT echo(vector<wstring> args);
 }

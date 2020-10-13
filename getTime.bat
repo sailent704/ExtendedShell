@@ -1,18 +1,19 @@
 @echo off
 @setlocal
 
-set choice=%*
+set bdir=%1
+set choice=%2
 
 if /i "%choice%"=="start" (goto start)
 if /i "%choice%"=="end" (goto end)
 
 :start
-echo %time% > build\timeStart.txt
+echo %time% > %bdir%\timeStart.txt
 goto :eof
 
 :end
 set end=%time%
-set /p start=<build\timeStart.txt
+set /p start=<%bdir%\timeStart.txt
 
 set options="tokens=1-4 delims=:.,"
 for /f %options% %%a in ("%start%") do set start_h=%%a&set /a start_m=100%%b %% 100&set /a start_s=100%%c %% 100&set /a start_ms=100%%d %% 100
