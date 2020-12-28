@@ -52,6 +52,9 @@
     <Filter Include="Soubory zdrojů\Commands\exit">
       <UniqueIdentifier>{34bfe8a0-dbf5-41df-86bb-aea4341f0d9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Soubory zdrojů\Commands\echo">
+      <UniqueIdentifier>{27917ceb-fefc-458a-a4ea-908ed707b71d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="Commands\exit.cpp">
       <Filter>Soubory zdrojů\Commands\exit</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\echo.cpp">
+      <Filter>Soubory zdrojů\Commands\echo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
