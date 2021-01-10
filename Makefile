@@ -10,10 +10,9 @@ CPPFLAGS ?= -std=gnu++20 -Ofast
 LDFLAGS ?= -m32 -static -static-libgcc
 
 # Linking
-$(BUILD_DIR)/$(TARGET_EXEC): $(BUILD_DIR) time $(OBJS)
+$(BUILD_DIR)/$(TARGET_EXEC): $(BUILD_DIR) $(OBJS)
 	@echo Linking
 	@$(CC) $(LDFLAGS) $(OBJS) -o $@
-	@getTime.bat $(BUILD_DIR) end
 
 # C++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
@@ -21,7 +20,7 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 	@$(CC) $(CPPFLAGS) -c $< -o $@
 
 
-.PHONY: clean run make time
+.PHONY: clean run make
 clean:
 	@echo Cleaning
 	@rmdir /s /q $(BUILD_DIR)
@@ -33,9 +32,6 @@ $(BUILD_DIR):
 	@if not exist $(BUILD_DIR)\\Helpers mkdir $(BUILD_DIR)\\Helpers
 	@if not exist $(BUILD_DIR)\\Parser mkdir $(BUILD_DIR)\\Parser
 	@if not exist $(BUILD_DIR)\\Executable mkdir $(BUILD_DIR)\\Executable
-
-time:
-	@getTime.bat $(BUILD_DIR) start
 
 make: $(BUILD_DIR)/$(TARGET_EXEC)
 
