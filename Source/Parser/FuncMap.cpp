@@ -1,5 +1,5 @@
 #include "FuncMap.hpp"
-#include "../Commands/Commands.hpp"
+#include "Commands/Commands.hpp"
 
 /*
 File: FuncMap.cpp

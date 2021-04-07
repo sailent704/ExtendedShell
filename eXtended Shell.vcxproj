@@ -143,27 +143,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Commands\cat.cpp" />
-    <ClCompile Include="Commands\cd.cpp" />
-    <ClCompile Include="Commands\clear.cpp" />
-    <ClCompile Include="Commands\Commands.cpp" />
-    <ClCompile Include="Commands\echo.cpp" />
-    <ClCompile Include="Commands\exit.cpp" />
-    <ClCompile Include="Commands\ls.cpp" />
-    <ClCompile Include="Commands\mkdir.cpp" />
-    <ClCompile Include="Commands\pwd.cpp" />
-    <ClCompile Include="Commands\rm.cpp" />
-    <ClCompile Include="Commands\touch.cpp" />
-    <ClCompile Include="Helpers\Helpers.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Parser\FuncMap.cpp" />
-    <ClCompile Include="Parser\Parser.cpp" />
+    <ClCompile Include="Source\Commands\cat.cpp" />
+    <ClCompile Include="Source\Commands\cd.cpp" />
+    <ClCompile Include="Source\Commands\clear.cpp" />
+    <ClCompile Include="Source\Commands\Commands.cpp" />
+    <ClCompile Include="Source\Commands\echo.cpp" />
+    <ClCompile Include="Source\Commands\exit.cpp" />
+    <ClCompile Include="Source\Commands\ls.cpp" />
+    <ClCompile Include="Source\Commands\mkdir.cpp" />
+    <ClCompile Include="Source\Commands\pwd.cpp" />
+    <ClCompile Include="Source\Commands\rm.cpp" />
+    <ClCompile Include="Source\Commands\touch.cpp" />
+    <ClCompile Include="Source\Helpers\Helpers.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Parser\FuncMap.cpp" />
+    <ClCompile Include="Source\Parser\Parser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Commands\Commands.hpp" />
-    <ClInclude Include="Helpers\Helpers.hpp" />
-    <ClInclude Include="Parser\FuncMap.hpp" />
-    <ClInclude Include="Parser\Parser.hpp" />
+    <ClInclude Include="Source\Commands\Commands.hpp" />
+    <ClInclude Include="Source\Helpers\Helpers.hpp" />
+    <ClInclude Include="Source\Parser\FuncMap.hpp" />
+    <ClInclude Include="Source\Parser\Parser.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

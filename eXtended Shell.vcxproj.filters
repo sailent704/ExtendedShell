@@ -22,99 +22,99 @@
     <Filter Include="Soubory zdrojů\Parser">
       <UniqueIdentifier>{8f2211ac-e0f6-49f8-9a8c-f921f3900ed7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Parser\FuncMap">
+    <Filter Include="Soubory zdrojů\Source\Parser\FuncMap">
       <UniqueIdentifier>{c4d72d5e-93a3-43d4-bbcc-adb28bf20464}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\cat">
+    <Filter Include="Soubory zdrojů\Source\Commands\cat">
       <UniqueIdentifier>{5e18c070-0b18-4750-b699-589122036894}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\pwd">
+    <Filter Include="Soubory zdrojů\Source\Commands\pwd">
       <UniqueIdentifier>{8f1559c8-e4ed-4b15-9e5b-6befda61122d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\clear">
+    <Filter Include="Soubory zdrojů\Source\Commands\clear">
       <UniqueIdentifier>{ee24b646-902d-4595-988a-ad160416c1fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\cd">
+    <Filter Include="Soubory zdrojů\Source\Commands\cd">
       <UniqueIdentifier>{da80c230-599e-4dc4-bcaf-8ed572bcb244}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\ls">
+    <Filter Include="Soubory zdrojů\Source\Commands\ls">
       <UniqueIdentifier>{ac755174-638e-476f-a1b7-3e01f365921b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\mkdir">
+    <Filter Include="Soubory zdrojů\Source\Commands\mkdir">
       <UniqueIdentifier>{c0577da3-fb7c-48df-abd6-213f53949131}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\touch">
+    <Filter Include="Soubory zdrojů\Source\Commands\touch">
       <UniqueIdentifier>{5d9bafab-5bfc-46e8-8275-69ea89f1967f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\rm">
+    <Filter Include="Soubory zdrojů\Source\Commands\rm">
       <UniqueIdentifier>{f3a6b4d8-5f68-4b5e-83c9-2c8cc3093e49}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\exit">
+    <Filter Include="Soubory zdrojů\Source\Commands\exit">
       <UniqueIdentifier>{34bfe8a0-dbf5-41df-86bb-aea4341f0d9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Soubory zdrojů\Commands\echo">
+    <Filter Include="Soubory zdrojů\Source\Commands\echo">
       <UniqueIdentifier>{27917ceb-fefc-458a-a4ea-908ed707b71d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Source\main.cpp">
       <Filter>Zdrojové soubory</Filter>
     </ClCompile>
-    <ClCompile Include="Helpers\Helpers.cpp">
-      <Filter>Soubory zdrojů\Helpers</Filter>
+    <ClCompile Include="Source\Helpers\Helpers.cpp">
+      <Filter>Soubory zdrojů\Source\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\Commands.cpp">
-      <Filter>Soubory zdrojů\Commands</Filter>
+    <ClCompile Include="Source\Commands\Commands.cpp">
+      <Filter>Soubory zdrojů\Source\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="Parser\FuncMap.cpp">
-      <Filter>Soubory zdrojů\Parser\FuncMap</Filter>
+    <ClCompile Include="Source\Parser\FuncMap.cpp">
+      <Filter>Soubory zdrojů\Source\Parser\FuncMap</Filter>
     </ClCompile>
-    <ClCompile Include="Parser\Parser.cpp">
-      <Filter>Soubory zdrojů\Parser</Filter>
+    <ClCompile Include="Source\Parser\Parser.cpp">
+      <Filter>Soubory zdrojů\Source\Parser</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\cat.cpp">
-      <Filter>Soubory zdrojů\Commands\cat</Filter>
+    <ClCompile Include="Source\Commands\cat.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\cat</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\pwd.cpp">
-      <Filter>Soubory zdrojů\Commands\pwd</Filter>
+    <ClCompile Include="Source\Commands\pwd.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\pwd</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\clear.cpp">
-      <Filter>Soubory zdrojů\Commands\clear</Filter>
+    <ClCompile Include="Source\Commands\clear.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\clear</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\cd.cpp">
-      <Filter>Soubory zdrojů\Commands\cd</Filter>
+    <ClCompile Include="Source\Commands\cd.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\cd</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\ls.cpp">
-      <Filter>Soubory zdrojů\Commands\ls</Filter>
+    <ClCompile Include="Source\Commands\ls.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\ls</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\mkdir.cpp">
-      <Filter>Soubory zdrojů\Commands\mkdir</Filter>
+    <ClCompile Include="Source\Commands\mkdir.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\mkdir</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\touch.cpp">
-      <Filter>Soubory zdrojů\Commands\touch</Filter>
+    <ClCompile Include="Source\Commands\touch.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\touch</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\rm.cpp">
-      <Filter>Soubory zdrojů\Commands\rm</Filter>
+    <ClCompile Include="Source\Commands\rm.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\rm</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\exit.cpp">
-      <Filter>Soubory zdrojů\Commands\exit</Filter>
+    <ClCompile Include="Source\Commands\exit.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\exit</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\echo.cpp">
-      <Filter>Soubory zdrojů\Commands\echo</Filter>
+    <ClCompile Include="Source\Commands\echo.cpp">
+      <Filter>Soubory zdrojů\Source\Commands\echo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Helpers\Helpers.hpp">
-      <Filter>Soubory zdrojů\Helpers</Filter>
+    <ClInclude Include="Source\Helpers\Helpers.hpp">
+      <Filter>Soubory zdrojů\Source\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Commands\Commands.hpp">
-      <Filter>Soubory zdrojů\Commands</Filter>
+    <ClInclude Include="Source\Commands\Commands.hpp">
+      <Filter>Soubory zdrojů\Source\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Parser\FuncMap.hpp">
-      <Filter>Soubory zdrojů\Parser\FuncMap</Filter>
+    <ClInclude Include="Source\Parser\FuncMap.hpp">
+      <Filter>Soubory zdrojů\Source\Parser\FuncMap</Filter>
     </ClInclude>
-    <ClInclude Include="Parser\Parser.hpp">
-      <Filter>Soubory zdrojů\Parser</Filter>
+    <ClInclude Include="Source\Parser\Parser.hpp">
+      <Filter>Soubory zdrojů\Source\Parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

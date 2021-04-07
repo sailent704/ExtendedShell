@@ -1,5 +1,5 @@
 #pragma once
-#include "../Helpers/Helpers.hpp"
+#include "Helpers/Helpers.hpp"
 
 /*
 File: FuncMap.hpp

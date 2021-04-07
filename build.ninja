@@ -1,0 +1,45 @@
+cc = g++
+
+build_dir = out
+source_dir = source
+
+target = $build_dir/extended.exe
+
+obj = $build_dir/obj
+src = $source_dir
+
+cxxflags = -std=gnu++20 -Ofast -I$source_dir -pipe
+ldflags = -m64 -s -static -static-libgcc -static-libstdc++ -Wl,--as-needed -Wl,--gc-sections -fno-pie -pipe
+
+rule cc
+    depfile = $out.dep
+    command = $cc -MD -MF $out.dep -o $out -c $in $cxxflags
+    description = cc $out
+
+rule link
+    depfile = $out.dep
+    command = $cc -MD -MF $out.dep -o $out $in $ldflags
+    description = link $out
+
+# Core
+build $obj/main.obj: cc $src/main.cpp
+build $obj/helpers.obj: cc $src/Helpers/Helpers.cpp
+build $obj/funcmap.obj: cc $src/Parser/FuncMap.cpp
+build $obj/parser.obj: cc $src/Parser/Parser.cpp
+build $obj/commands.obj: cc $src/Commands/Commands.cpp
+
+# Commands
+build $obj/cat.obj: cc $src/Commands/cat.cpp
+build $obj/cd.obj: cc $src/Commands/cd.cpp
+build $obj/clear.obj: cc $src/Commands/clear.cpp
+build $obj/echo.obj: cc $src/Commands/echo.cpp
+build $obj/exit.obj: cc $src/Commands/exit.cpp
+build $obj/ls.obj: cc $src/Commands/ls.cpp
+build $obj/mkdir.obj: cc $src/Commands/mkdir.cpp
+build $obj/pwd.obj: cc $src/Commands/pwd.cpp
+build $obj/rm.obj: cc $src/Commands/rm.cpp
+build $obj/touch.obj: cc $src/Commands/touch.cpp
+
+build $target: link $
+$obj/main.obj $obj/helpers.obj $obj/funcmap.obj $obj/parser.obj $obj/commands.obj $
+$obj/cat.obj $obj/cd.obj $obj/clear.obj $obj/echo.obj $obj/exit.obj $obj/ls.obj $obj/mkdir.obj $obj/pwd.obj $obj/rm.obj $obj/touch.obj
