@@ -23,7 +23,7 @@ void ParseCommand(vector<wstring> vCommand)
 		}
 		
 	}
-	else if (vCommand[0].starts_with(L"./"))
+	else if (vCommand[0].rfind(L"./", 0) == 0)
 	{
 		gFuncMap[L"./\t"](vCommand);
 	}

@@ -40,9 +40,7 @@ wstring Helpers::vecsum(unsigned int offset, const vector<wstring>& vec, bool us
 
 void Helpers::SetPrintCol(Color color)
 {
-	//Get the console output handle
-	static HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, static_cast<WORD>(color));
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), static_cast<WORD>(color));
 }
 
 bool Helpers::StringCmp(const string& str, const string& str2)

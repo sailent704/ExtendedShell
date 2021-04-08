@@ -26,12 +26,12 @@ public:
 
 	bool Exists(wstring key)
 	{
-		return funcMap.contains(key);
+		return ((funcMap.count(key) != 0) ? true : false);
 	}
 
 	tFunction operator[](wstring key)
 	{
-		if (funcMap.contains(key))
+		if (funcMap.count(key))
 			return funcMap.at(key);
 		return nullptr;
 	}

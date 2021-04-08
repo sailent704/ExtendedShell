@@ -8,7 +8,8 @@ target = $build_dir/extended.exe
 obj = $build_dir/obj
 src = $source_dir
 
-cxxflags = -std=gnu++20 -Ofast -I$source_dir -pipe
+# -finput-charset=UTF-8 -fexec-charset=UTF-8
+cxxflags = -std=gnu++17 -Ofast -I$source_dir -fno-pie -pedantic -pipe
 ldflags = -m64 -s -static -static-libgcc -static-libstdc++ -Wl,--as-needed -Wl,--gc-sections -fno-pie -pipe
 
 rule cc
@@ -17,8 +18,7 @@ rule cc
     description = cc $out
 
 rule link
-    depfile = $out.dep
-    command = $cc -MD -MF $out.dep -o $out $in $ldflags
+    command = $cc -o $out $in $ldflags
     description = link $out
 
 # Core
