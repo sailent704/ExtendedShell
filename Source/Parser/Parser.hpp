@@ -1,5 +1,6 @@
 #pragma once
 #include "FuncMap.hpp"
+
 /*
 File: Parser.hpp
 Purpose: Holds definitions of Parser functions (only one line at the time of writing this)

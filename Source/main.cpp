@@ -22,9 +22,9 @@ Author: Pin (https://github.com/sailent704)
 class OutBuffer: public std::stringbuf
 {
 	public:
-		int sync() {
-			fputs( str().c_str(), stdout );
-			str( "" );
+		inline int sync() override {
+			fputs(str().c_str(), stdout);
+			str("");
 			return 0;
 		}
 };
@@ -47,7 +47,7 @@ void PrintPrefix()
 		//Change 'D:\Test' to 'D:/Test' - looks better IMO
 		//std::replace(sDir.begin(), sDir.end(), '\\', '/');
 	}
-	
+
 	wstring userName = Helpers::ToWString(getenv("username"));
 	wstring pcName = Helpers::ToWString(getenv("computername"));
 
@@ -86,17 +86,16 @@ int main(int arg_count, char *arg_vector[])
 	Helpers::SetConsoleTitleS("ExtendedShell Cutting Edge");
 	InitFuncMap(&gFuncMap);
 	//Do stuff with args here
-	
 
 	setlocale(LC_ALL, "en_US.UTF-8");
 	setvbuf( stdout, nullptr, _IONBF, 0 );
 
 	SetConsoleCP(65001);
-	SetConsoleOutputCP( 65001 );
+	SetConsoleOutputCP(65001);
 	SetFont(L"Lucida Console");
 
 	OutBuffer buf;
-	std::cout.rdbuf( &buf );
+	std::cout.rdbuf(&buf);
 
 	while (true)
 	{

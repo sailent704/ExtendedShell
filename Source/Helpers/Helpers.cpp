@@ -98,7 +98,7 @@ bool Helpers::IsElevated()
 
 #ifndef ERROR_DEVICE_NO_RESOURCES
 #define ERROR_DEVICE_NO_RESOURCES 322L
-#endif
+#endif // !ERROR_DEVICE_NO_RESOURCES
 
 wstring Helpers::GetErrorMessage(const std::error_code& e)
 {

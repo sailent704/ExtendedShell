@@ -26,7 +26,7 @@ public:
 
 	bool Exists(wstring key)
 	{
-		return ((funcMap.count(key) != 0) ? true : false);
+		return ((funcMap.count(key) > 0) ? true : false);
 	}
 
 	tFunction operator[](wstring key)
